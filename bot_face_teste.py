@@ -104,11 +104,6 @@ class bot_face():
 
     @time_out(time_out=10, raise_exception=False)
     def getting_information(self, n_posts=20):
-        """
-        Informações importantes para o desenvolvimento do código:
-        class do usuario do post, tempo de publicação ou anuncio: x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa xo1l8bm xi81zsa x1yc453h
-        """
-
         post_links = list()
         sleep(10)
         n_scroll = 0
@@ -136,17 +131,17 @@ class bot_face():
 
         print('n_scroll: ', n_scroll)
 
-        self.driver.execute_script("window.scrollBy(0,6150)")
+        # self.driver.execute_script("window.scrollBy(0,6150)")
 
         script = f""" 
                     var results = document.getElementsByClassName('x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv xo1l8bm')
                     return results
                   """
         
+        elements = self.driver.execute_script(script)
+        
         self.driver.execute_script("window.scrollBy(0,-"+ str(n_scroll*6150) +")")
 
-        elements = self.driver.execute_script(script)
-        elements = elements[:n_posts]
 
         for element in elements:
             try:
@@ -165,6 +160,9 @@ class bot_face():
 
             if href not in post_links:
                 post_links.append(href)
+
+            if len(post_links) == n_posts:
+                break
 
         print('numero de post_links: ', len(post_links))
         
@@ -232,10 +230,9 @@ class bot_face():
     def main(self, keyword):
         bot.login_facebook('vitor_custodio2@hotmail.com', '20679612')
         bot.search_keyword(keyword)
-        # links = bot.getting_information()
         publication_links = bot.getting_information()
         bot.take_screenshot(publication_links)
-        # print(len(links))
+
         
     def inserir_db(self, publication_id, i, publication_link):
 
@@ -314,6 +311,6 @@ class bot_face():
 if __name__ == '__main__':
     bot = bot_face()
     
-    bot.main('golden state warriors')
+    bot.main('Hamas')
 
 

@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver import ActionChains
 from bs4 import BeautifulSoup
 from time import sleep
+
 import logging
 import time
 import psycopg2
@@ -349,11 +350,3 @@ if __name__ == '__main__':
                 bot.verificando_busca_avulsa()
                 processando = False
 
-
-
-
-
-# Do whatever you want on Twitter here
-
-# Close the browser when you're done
-# driver.quit()

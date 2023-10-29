@@ -1,0 +1,114 @@
+1698347389882	geckodriver	INFO	Listening on 127.0.0.1:55545
+1698347392984	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55546" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofile81TNVI"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1698347393469	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1698347393582	Marionette	INFO	Listening on port 55556
+WebDriver BiDi listening on ws://127.0.0.1:55546
+Read port: 55556
+1698347393836	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:55546/devtools/browser/4145f71a-63d4-49a7-9472-8dfac26d8cfe
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yz/l/pt_BR/H0wnRp_Aysj.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698347404829	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iYXp4/y7/l/makehaste_jhash/CofQlqEi7br.js?_nc_x=bP3Wd9LjSCs, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698347442159	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1698347442163	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1698353353417	Marionette	INFO	Stopped listening on port 55556
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55727" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilemoqWkw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1698347589538	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1698347589627	Marionette	INFO	Listening on port 55738
+WebDriver BiDi listening on ws://127.0.0.1:55727
+Read port: 55738
+1698347589844	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:55727/devtools/browser/d7f5f02e-3f56-44fd-91ad-d3772dc7a1ff
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yz/l/pt_BR/H0wnRp_Aysj.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698347600116	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iYXp4/y7/l/makehaste_jhash/CofQlqEi7br.js?_nc_x=bP3Wd9LjSCs, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iYXp4/y7/l/makehaste_jhash/CofQlqEi7br.js?_nc_x=bP3Wd9LjSCs, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698347635866	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1698347635869	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1698353351292	Marionette	INFO	Stopped listening on port 55738
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56052" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilencFan6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1698348318036	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1698348318133	Marionette	INFO	Listening on port 56060
+WebDriver BiDi listening on ws://127.0.0.1:56052
+Read port: 56060
+1698348318354	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56052/devtools/browser/e01d4fee-f04d-454e-a930-3fe0fffffac6
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yz/l/pt_BR/H0wnRp_Aysj.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698348328657	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iYXp4/y7/l/makehaste_jhash/CofQlqEi7br.js?_nc_x=bP3Wd9LjSCs, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698348369127	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1698348369280	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/V3XgN1l3wCx.js?_nc_x=Ij3Wp8lg5Kz, line 70: Script terminated by timeout at:
+c.emit@https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/V3XgN1l3wCx.js?_nc_x=Ij3Wp8lg5Kz:70:1199
+@https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/V3XgN1l3wCx.js?_nc_x=Ij3Wp8lg5Kz:330:1046
+applyWithGuard@https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/V3XgN1l3wCx.js?_nc_x=Ij3Wp8lg5Kz:61:10432
+d@https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/V3XgN1l3wCx.js?_nc_x=Ij3Wp8lg5Kz:325:2086
+
+1698353352532	Marionette	INFO	Stopped listening on port 56060
+Dynamically enable window occlusion 1
+1698412472762	geckodriver	INFO	Listening on 127.0.0.1:50615
+1698412475864	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50616" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileJuzcIJ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1698412476223	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1698412476308	Marionette	INFO	Listening on port 50629
+WebDriver BiDi listening on ws://127.0.0.1:50616
+Read port: 50629
+1698412476536	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50616/devtools/browser/9a25ed93-cdb6-472c-a72f-298ccf2e971f
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yJ/l/pt_BR/ziL6T8Zzj7Y.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1698412486493	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iYXp4/y5/l/makehaste_jhash/e72jWMJpP3m.js?_nc_x=bP3Wd9LjSCs, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iKdt4/y0/l/makehaste_jhash/qFZQEi3DhaU4RCFBUR5OG3RW8k64RJJBn-cnBPVxBqFv6AhxffiucrPhQoFH8LrN1PlQmUgNLD0b8I3Ci139kBjZjx6zCauMRD0jt31X1aQswZKir1Jw-6_7ZVL3YGzKbGJv-gVb4qw7DoxZQllFv7EHEl3JL7tOBO8h8Tck_SkZ7Pe_RNLrAfgSmj2U9U7huPMLNBbsLXbg_lv3TRRFxoLIW2C0uMXg__TPadC_KUGzzR45s4.js?_nc_x=bP3Wd9LjSCs, line 773: Script terminated by timeout at:
+b.wrapAndEnqueueItem@https://static.xx.fbcdn.net/rsrc.php/v3iKdt4/y0/l/makehaste_jhash/qFZQEi3DhaU4RCFBUR5OG3RW8k64RJJBn-cnBPVxBqFv6AhxffiucrPhQoFH8LrN1PlQmUgNLD0b8I3Ci139kBjZjx6zCauMRD0jt31X1aQswZKir1Jw-6_7ZVL3YGzKbGJv-gVb4qw7DoxZQllFv7EHEl3JL7tOBO8h8Tck_SkZ7Pe_RNLrAfgSmj2U9U7huPMLNBbsLXbg_lv3TRRFxoLIW2C0uMXg__TPadC_KUGzzR45s4.js?_nc_x=bP3Wd9LjSCs:773:4715
+E@https://static.xx.fbcdn.net/rsrc.php/v3iKdt4/y0/l/makehaste_jhash/qFZQEi3DhaU4RCFBUR5OG3RW8k64RJJBn-cnBPVxBqFv6AhxffiucrPhQoFH8LrN1PlQmUgNLD0b8I3Ci139kBjZjx6zCauMRD0jt31X1aQswZKir1Jw-6_7ZVL3YGzKbGJv-gVb4qw7DoxZQllFv7EHEl3JL7tOBO8h8Tck_SkZ7Pe_RNLrAfgSmj2U9U7huPMLNBbsLXbg_lv3TRRFxoLIW2C0uMXg__TPadC_KUGzzR45s4.js?_nc_x=bP3Wd9LjSCs:775:2648
+F@https://static.xx.fbcdn.net/rsrc.php/v3iKdt4/y0/l/makehaste_jhash/qFZQEi3DhaU4RCFBUR5OG3RW8k64RJJBn-cnBPVxBqFv6AhxffiucrPhQoFH8LrN1PlQmUgNLD0b8I3Ci139kBjZjx6zCauMRD0jt31X1aQswZKir1Jw-6_7ZVL3YGzKbGJv-gVb4qw7DoxZQllFv7EHEl3JL7tOBO8h8Tck_SkZ7Pe_RNLrAfgSmj2U9U7huPMLNBbsLXbg_lv3TRRFxoLIW2C0uMXg__TPadC_KUGzzR45s4.js?_nc_x=bP3Wd9LjSCs:775:2825
+log@https://static.xx.fbcdn.net/rsrc.php/v3iKdt4/y0/l/makehaste_jhash/qFZQEi3DhaU4RCFBUR5OG3RW8k64RJJBn-cnBPVxBqFv6AhxffiucrPhQoFH8LrN1PlQmUgNLD0b8I3Ci139kBjZjx6zCauMRD0jt31X1aQswZKir1Jw-6_7ZVL3YGzKbGJv-gVb4qw7DoxZQllFv7EHEl3JL7tOBO8h8Tck_SkZ7Pe_RNLrAfgSmj2U9U7huPMLNBbsLXbg_lv3TRRFxoLIW2C0uMXg__TPadC_KUGzzR45s4.js?_nc_x=bP3Wd9LjSCs:775:3452
+logComet@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:5:5452
+b.flushLogs/<@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:31:581
+b.flushLogs@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:31:257
+H@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:43:22776
+h@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:43:23977
+q/a<@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:43:10706
+g@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:36:13344
+dispatch@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:36:12962
+Z@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:43:25187
+a/ka/<@https://static.xx.fbcdn.net/rsrc.php/v3i9kN4/yH/l/makehaste_jhash/KcIYIaUSg61Cw5hvSBmqxLckxoh4luil2aXPHAu57U60FNimQqgmFOyrzRpsN3S7D1-6PfNRHOp9EeYnxV3Zgqa6cBadBR5So89s5Hm5JKECvpoixxLM0gXcG25JoNtYEfFJw49GOMht8FBj6VoiFi2zlPcB4_6s0HJ_3eKBwdbDd9OAkJpFWqyHwZbFv2IUksZrxgswhDVBOE-vAir5uAhA-lSqXIVvSFEATtx0BAjVC0E-l9WZxPX4KlCJUs9GRdC5_uuW7HeWXsHhXrdGeGyUGxqFDtlvobCtGMWre3WN5j92YCbYg-MXrxdf1ItWrEtZR0tjTL.js?_nc_x=bP3Wd9LjSCs:43:29825
+a@https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/0DJd5LT-ksu.js?_nc_x=bP3Wd9LjSCs:229:191
+p@https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/0DJd5LT-ksu.js?_nc_x=bP3Wd9LjSCs:230:882
+m/<@https://static.xx.fbcdn.net/rsrc.php/v3/yc/r/0DJd5LT-ksu.js?_nc_x=bP3Wd9LjSCs:230:407
+
+1698413139137	Marionette	INFO	Stopped listening on port 50629
+Dynamically enable window occlusion 1
