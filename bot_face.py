@@ -1,3 +1,8 @@
+import logging
+import time
+import psycopg2
+import pandas as pd
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,23 +11,15 @@ from selenium.webdriver import ActionChains
 from bs4 import BeautifulSoup
 from time import sleep
 
-import logging
-import time
-import psycopg2
-
-
 class bot_face():
-    def __init__(self):
-        self.driver = webdriver.Firefox()
-        self.actions = ActionChains(self.driver)
-        sleep(3)
+    def __init__(self, cred_login, cred_senha):
+        options = webdriver.FirefoxOptions()
+        options.add_argument("-headless")
 
-    def remover_letra(self, string, letra_retirar):
-        nova_string = ""
-        for letra in string:
-            if letra != letra_retirar:
-                nova_string += letra
-        return nova_string
+        self.driver = webdriver.Firefox(options=options)
+        self.cred_login = cred_login
+        self.cred_senha = cred_senha
+        sleep(3)
 
     def time_out(void=None, time_out: int = 20, raise_exception: bool = True):
 
@@ -71,13 +68,14 @@ class bot_face():
 
         return wrapper
 
-    def login_facebook(self):
+    def login(self):
+        print('Fazendo login no Facebook...')
         script_pass = f"""
                     document.getElementById('pass').value='{self.cred_senha}'
                     """
 
         script_username = f"""
-                            document.getElementById('email').value='{self.cred_usuario}'
+                            document.getElementById('email').value='{self.cred_login}'
                             """   
 
         script_login = f"""
@@ -87,28 +85,21 @@ class bot_face():
         self.driver.get('https://www.facebook.com/login/web/')
         self.driver.maximize_window()
         
-
-
         self.driver.execute_script(script_username)
-
         self.driver.execute_script(script_pass)
-
         self.driver.execute_script(script_login)
 
         self.driver.implicitly_wait(10)
 
     @time_out(time_out=10, raise_exception=True)
-    def search_keyword(self):
+    def search_keyword(self, keyword):
+        print(f'Pesquisando por: {keyword}...')
         sleep(4)
-        self.driver.get('https://www.facebook.com/search/posts?q='+self.keyword)
+        self.driver.get('https://www.facebook.com/search/posts?q='+keyword)
 
     @time_out(time_out=10, raise_exception=False)
-    def getting_information(self, n_posts=20):
-        """
-        Informações importantes para o desenvolvimento do código:
-        class do usuario do post, tempo de publicação ou anuncio: x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x676frb x1nxh6w3 x1sibtaa xo1l8bm xi81zsa x1yc453h
-        """
-
+    def get_post_links(self, n_posts=20):
+        print('Obtendo links dos posts...')
         self.post_links = list()
         sleep(10)
         n_scroll = 0
@@ -120,13 +111,14 @@ class bot_face():
                               """
             
             n_posts_browser = self.driver.execute_script(script_n_posts)
-            print('n_posts_browser: ', n_posts_browser)
 
             if n_posts_browser >= n_posts:
+                n_posts_browser = n_posts
                 break
 
             elif n_scroll > 50:
                 print(f"foram encontrados o total de {n_posts_browser} posts de {n_posts}")
+                
                 break
 
             else:
@@ -134,19 +126,19 @@ class bot_face():
                 self.driver.execute_script("window.scrollBy(0,6150)")
                 sleep(1)
 
-        print('n_scroll: ', n_scroll)
 
-        self.driver.execute_script("window.scrollBy(0,6150)")
+        # self.driver.execute_script("window.scrollBy(0,6150)")
 
         script = f""" 
                     var results = document.getElementsByClassName('x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv xo1l8bm')
                     return results
                   """
         
+        elements = self.driver.execute_script(script)
+        elements = elements[:n_posts_browser]
+        
         self.driver.execute_script("window.scrollBy(0,-"+ str(n_scroll*6150) +")")
 
-        elements = self.driver.execute_script(script)
-        elements = elements[:n_posts]
 
         for element in elements:
             try:
@@ -166,187 +158,188 @@ class bot_face():
             if href not in self.post_links:
                 self.post_links.append(href)
 
-        print('numero de self.post_links: ', len(self.post_links))
+            if len(self.post_links) == n_posts:
+                break
+
+        print('numero de post_links: ', len(self.post_links))
         
+    def get_data(self):
+        return self.data
+
     @time_out(time_out=10, raise_exception=False)
-    def take_screenshot(self, publication_links):
-        for i,link in enumerate(publication_links):
+    def get_information(self):
+        print('Tirando screenshots...')
+
+        info = list()
+
+        for i,link in enumerate(self.post_links):
             self.driver.get(link)
             sleep(2)
             self.driver.save_screenshot('imgs/'+str(i)+'.png')
 
-    def conecta_db(self):
-        con = psycopg2.connect(host='dev.danillodars.com.br', 
-                                database='infoverse',
-                                user='infoverse', 
-                                password=')IU+#8Jf{TM8ec5L{94a[6Z@}rk0R7P$')
-        return con
+            info.append([link, link])
+
+        self.data = pd.DataFrame(info, columns=['link', 'publication_id'])
+
+def conecta_db():
+    con = psycopg2.connect(host='db.infoverse.com.br', 
+                            database='infoverse',
+                            user='infoverse', 
+                            password='fMCTSepyEXpH')
+    return con
         
-    def retorna_pesquisa_avulsa(self):
-        con = self.conecta_db()
+def retorna_pesquisa_avulsa():
+    con = conecta_db()
+    cursor = con.cursor()
+
+    sql = """SELECT id, id_usuario, id_credencial, data_pesquisa, rede_social, status, palavra_chave, filtro, filtro_avancado, ano_referencia, publicacoes_de, localizacao_marcada
+            FROM pesquisa_avulsa
+            WHERE status IS NULL OR status = False;"""
+    
+    cursor.execute(sql)
+    rows = cursor.fetchall()
+
+    cursor.close()
+    con.close()
+
+    return rows
+    
+def set_status_pesquisa_avulsa(id):
+    con = conecta_db()
+    cursor = con.cursor()
+
+    sql = """UPDATE pesquisa_avulsa
+            SET status=true
+            WHERE id ="""+ str(id) +""";"""
+    
+    cursor.execute(sql)
+    con.commit()
+
+    cursor.close()
+    con.close()
+
+def retorna_credencial(credencial_id):
+    con = conecta_db()
+    cursor = con.cursor()
+
+    sql = """SELECT id, descricao, usuario, senha
+    FROM bot_credencial_facebook WHERE id ="""+ str(credencial_id) +""";"""
+
+    cursor.execute(sql)
+    row3 = cursor.fetchall()
+
+    cursor = cursor.close()
+    con = con.close()
+
+    return row3
+    
+def verificando_busca_avulsa():
+    rows = retorna_pesquisa_avulsa()
+
+    for row in rows:
+        id, id_usuario, id_credencial, date_search, rede_social, status, keyword, filtro, filtro_avancado, ano_referencia, publicacoes_de, localizacao_marcada = row
+
+        row2 = retorna_credencial(id_credencial)
+        _, _, cred_usuario, cred_senha = row2[0]
+
+        executar_busca(id, cred_usuario, cred_senha, keyword)
+        set_status_pesquisa_avulsa(id)
+
+def executar_busca(id, cred_login, cred_senha, keyword):
+    print('executando busca...')
+    bot = bot_face(cred_login, cred_senha)
+    bot.login()
+
+    sleep(5)
+
+    bot.search_keyword(keyword)
+    bot.get_post_links()
+    bot.get_information()
+
+    inserir_db(bot.get_data(), id)
+       
+def inserir_db(data, id):
+    print('Inserindo no banco de dados...')
+
+    for i,link in enumerate(data['link']):
+    
+        publication_id = link
+        publication_id = remover_letra(publication_id, '/')
+        publication_id = remover_letra(publication_id, ':')
+
+        sql = """
+        INSERT into contigencia (link_publication, publication_id, id_pesquisa_avulsa) 
+        values('%s','%s', '%s');
+        """ % (data['link'][i], publication_id, id)
+
+        con = conecta_db()
         cursor = con.cursor()
 
-        sql = """SELECT id, id_usuario, id_credencial, data_pesquisa, rede_social, status, palavra_chave, filtro, filtro_avancado, ano_referencia, publicacoes_de, localizacao_marcada
-                FROM pesquisa_avulsa
-                WHERE status IS NULL OR status = False;"""
-        
-        cursor.execute(sql)
-        rows = cursor.fetchall()
+        cursor.execute("""SELECT publication_id FROM contigencia WHERE publication_id = '"""+ str(publication_id) +"""';""")
+        linhas = cursor.fetchall()
 
         cursor.close()
         con.close()
-
-        return rows
-    
-    def set_status_pesquisa_avulsa(self, id):
-        con = self.conecta_db()
-        cursor = con.cursor()
-
-        sql3 = """UPDATE pesquisa_avulsa
-                SET status=true
-                WHERE id ="""+ str(id) +""";"""
         
-        cursor.execute(sql3)
-        con.commit()
+        # Conte o número de linhas retornadas
+        numero_de_linhas = len(linhas)
 
-        cursor.close()
-        con.close()
+        if numero_de_linhas == 0:
+            try:
+                con = conecta_db()
+                cursor = con.cursor()
 
-    def retorna_credencial(self, credencial_id):
-        con = self.conecta_db()
-        cursor = con.cursor()
+                cursor.execute(sql)
+                con.commit()
 
-        sql3 = """SELECT id, descricao, usuario, senha
-        FROM bot_credencial_facebook WHERE id ="""+ str(credencial_id) +""";"""
+                cursor.close()
+                con.close()
 
-        cursor.execute(sql3)
-        row3 = cursor.fetchall()
 
-        cursor = cursor.close()
-        con = con.close()
+                with open('imgs/'+str(i)+'.png', 'rb') as file:
+                    imagem_bytes = file.read()
 
-        return row3
-    
-    def verificando_busca_avulsa(self):
-        rows = self.retorna_pesquisa_avulsa()
 
-        for row in rows:
-            id, id_usuario, id_credencial, date_search, rede_social, status, keyword, filtro, filtro_avancado, ano_referencia, publicacoes_de, localizacao_marcada = row
+                data_img = (publication_id, psycopg2.Binary(imagem_bytes))
 
-            row2 = self.retorna_credencial(id_credencial)
-            _, _, cred_usuario, cred_senha = row2[0]
+                sql2 = """
+                        INSERT INTO pesquisa_screenshot (publication_id, bytea) 
+                        VALUES (%s, %s);
+                        """
 
-            self.id = id
-            self.id_usuario = id_usuario
-            self.id_credencial = id_credencial
-            self.date_search = date_search
-            self.status = status
-            self.keyword = keyword
-            self.filtro = filtro
-            self.cred_usuario = cred_usuario
-            self.cred_senha = cred_senha
+                con = conecta_db()
+                cursor = con.cursor()
 
-            if len(row) != 0:
-                print('busca encontrada')
-                try:
-                    self.main()
-                except:
-                    self.main()
+                cursor.execute(sql2, data_img)
+                con.commit()
 
-            else:
-                print('nenhuma busca encontrada')
-                break
+                cursor.close()
+                con.close()
 
-            self.set_status_pesquisa_avulsa(id)
+            except (Exception, psycopg2.DatabaseError) as error:
+                print("Error: %s" % error)
+                con.rollback()
+                cursor.close()
+                con.close()
 
-    def main(self):
-        bot.login_facebook()
-        bot.search_keyword()
-        bot.getting_information()
-        bot.take_screenshot()
-        bot.inserir_db()
-        
-    def inserir_db(self):
-        for i,link in enumerate(self.post_links):
-            publication_id = self.remover_letra(self.link, '/')
-            publication_id = self.remover_letra(self.link, ':')
-
-            sql = """
-            INSERT into contigencia (link_publication, publication_id, id_pesquisa_avulsa) 
-            values('%s','%s', '%s');
-            """ % (link, publication_id, self.id)
-
-            con = self.conecta_db()
-            cursor = con.cursor()
-
-            cursor.execute("""SELECT publication_id FROM pesquisa_bot_twitter WHERE publication_id = '"""+ str(publication_id) +"""';""")
-            linhas = cursor.fetchall()
-
-            cursor.close()
-            con.close()
+                return 1
             
-            # Conte o número de linhas retornadas
-            numero_de_linhas = len(linhas)
+    print('Inserido com sucesso!')
 
-            if numero_de_linhas == 0:
-                try:
-                    con = self.conecta_db()
-                    cursor = con.cursor()
-
-                    cursor.execute(sql)
-                    con.commit()
-
-                    cursor.close()
-                    con.close()
-
-
-                    with open('imgs/'+str(i)+'.png', 'rb') as file:
-                        print('caminho: ', 'imgs/'+str(i)+'.png')
-                        
-                        imagem_bytes = file.read()
-
-                    # data_bin = (psycopg2.Binary(imagem_bytes),)
-
-                    data = (publication_id, psycopg2.Binary(imagem_bytes))
-
-                    sql2 = """
-                            INSERT INTO pesquisa_screenshot (publication_id, bytea) 
-                            VALUES (%s, %s);
-                            """
-                    print('data_bin: ',data)
-
-                    con = self.conecta_db()
-                    cursor = con.cursor()
-
-                    cursor.execute(sql2, data)
-                    con.commit()
-
-                    cursor.close()
-                    con.close()
-
-                except (Exception, psycopg2.DatabaseError) as error:
-                    print("Error: %s" % error)
-                    con.rollback()
-                    cursor.close()
-                    con.close()
-
-                    return 1
-
+def remover_letra(string, letra_retirar):
+    nova_string = ""
+    for letra in string:
+        if letra != letra_retirar:
+            nova_string += letra
+    return nova_string
 
 if __name__ == '__main__':
     global precessando 
     processando = False
-
-    bot = bot_face()
+    print('Verificando busca avulsa')
     
     while True:
-        if not processando:
-            try:
-                processando = True
-                bot.verificando_busca_avulsa()
-                processando = False
-            except:
-                processando = True
-                bot.verificando_busca_avulsa()
-                processando = False
+        time.sleep(10)
+        verificando_busca_avulsa()
+
 
