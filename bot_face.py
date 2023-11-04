@@ -181,6 +181,33 @@ class bot_face():
 
         self.data = pd.DataFrame(info, columns=['link', 'publication_id'])
 
+def execute_sql(sql, data = None, fetch=False):
+    try:
+        con = conecta_db()
+        cursor = con.cursor()
+
+        if fetch:
+            cursor.execute(sql)
+            rows = cursor.fetchall()
+            con.commit()
+            cursor.close()
+            con.close()
+
+            return rows
+        
+        cursor.execute(sql, data)
+        con.commit()
+
+        cursor.close()
+        con.close()
+
+    except (Exception, psycopg2.DatabaseError) as error:
+                    print("Error: %s" % error)
+                    con.rollback()
+                    cursor.close()
+                    con.close()
+                    raise(error)
+
 def conecta_db():
     con = psycopg2.connect(host='db.infoverse.com.br', 
                             database='infoverse',
@@ -189,49 +216,28 @@ def conecta_db():
     return con
         
 def retorna_pesquisa_avulsa():
-    con = conecta_db()
-    cursor = con.cursor()
-
     sql = """SELECT id, id_usuario, id_credencial, data_pesquisa, rede_social, status, palavra_chave, filtro, filtro_avancado, ano_referencia, publicacoes_de, localizacao_marcada
             FROM pesquisa_avulsa
             WHERE status IS NULL OR status = False;"""
     
-    cursor.execute(sql)
-    rows = cursor.fetchall()
-
-    cursor.close()
-    con.close()
+    rows = execute_sql(sql, fetch=True)
 
     return rows
     
 def set_status_pesquisa_avulsa(id):
-    con = conecta_db()
-    cursor = con.cursor()
-
     sql = """UPDATE pesquisa_avulsa
             SET status=true
             WHERE id ="""+ str(id) +""";"""
     
-    cursor.execute(sql)
-    con.commit()
-
-    cursor.close()
-    con.close()
+    execute_sql(sql)
 
 def retorna_credencial(credencial_id):
-    con = conecta_db()
-    cursor = con.cursor()
-
     sql = """SELECT id, descricao, usuario, senha
     FROM bot_credencial_facebook WHERE id ="""+ str(credencial_id) +""";"""
 
-    cursor.execute(sql)
-    row3 = cursor.fetchall()
+    row = execute_sql(sql, fetch=True)
 
-    cursor = cursor.close()
-    con = con.close()
-
-    return row3
+    return row
     
 def verificando_busca_avulsa():
     rows = retorna_pesquisa_avulsa()
@@ -262,39 +268,38 @@ def inserir_db(data, id):
     print('Inserindo no banco de dados...')
 
     for i,link in enumerate(data['link']):
+        try:
     
-        publication_id = link
-        publication_id = remover_letra(publication_id, '/')
-        publication_id = remover_letra(publication_id, ':')
+            publication_id = link
+            publication_id = remover_letra(publication_id, '/')
+            publication_id = remover_letra(publication_id, ':')
+            publication_id = remover_letra(publication_id, '?')
+            publication_id = remover_letra(publication_id, ',')
+            publication_id = remover_letra(publication_id, '.')
+            publication_id = remover_letra(publication_id, '=')
+            publication_id = remover_letra(publication_id, '[')
+            publication_id = remover_letra(publication_id, ']')
+            publication_id = remover_letra(publication_id, '_')
+            publication_id = remover_letra(publication_id, '-')
+            publication_id = remover_letra(publication_id, '%')
+            publication_id = remover_letra(publication_id, '#')
+            publication_id = remover_letra(publication_id, '&')
+            publication_id = remover_letra(publication_id, '!')
+            publication_id = remover_letra(publication_id, '(')
+            publication_id = remover_letra(publication_id, ')')
 
-        sql = """
-        INSERT into contigencia (link_publication, publication_id, id_pesquisa_avulsa) 
-        values('%s','%s', '%s');
-        """ % (data['link'][i], publication_id, id)
+            sql = """
+            INSERT into contigencia (link_publication, publication_id, id_pesquisa_avulsa) 
+            values('%s','%s', '%s');
+            """ % (data['link'][i], publication_id, id)
 
-        con = conecta_db()
-        cursor = con.cursor()
+            linhas = execute_sql("""SELECT publication_id FROM contigencia WHERE publication_id = '"""+ str(publication_id) +"""';""", fetch=True)
+            
+            # Conte o número de linhas retornadas
+            numero_de_linhas = len(linhas)
 
-        cursor.execute("""SELECT publication_id FROM contigencia WHERE publication_id = '"""+ str(publication_id) +"""';""")
-        linhas = cursor.fetchall()
-
-        cursor.close()
-        con.close()
-        
-        # Conte o número de linhas retornadas
-        numero_de_linhas = len(linhas)
-
-        if numero_de_linhas == 0:
-            try:
-                con = conecta_db()
-                cursor = con.cursor()
-
-                cursor.execute(sql)
-                con.commit()
-
-                cursor.close()
-                con.close()
-
+            if numero_de_linhas == 0:
+                execute_sql(sql)
 
                 with open('imgs/'+str(i)+'.png', 'rb') as file:
                     imagem_bytes = file.read()
@@ -306,24 +311,12 @@ def inserir_db(data, id):
                         INSERT INTO pesquisa_screenshot (publication_id, bytea) 
                         VALUES (%s, %s);
                         """
+                execute_sql(sql2, data_img)
 
-                con = conecta_db()
-                cursor = con.cursor()
+        except Exception as e:
+            print('Erro na insersão de dados')
+            raise(e)
 
-                cursor.execute(sql2, data_img)
-                con.commit()
-
-                cursor.close()
-                con.close()
-
-            except (Exception, psycopg2.DatabaseError) as error:
-                print("Error: %s" % error)
-                con.rollback()
-                cursor.close()
-                con.close()
-
-                return 1
-            
     print('Inserido com sucesso!')
 
 def remover_letra(string, letra_retirar):
