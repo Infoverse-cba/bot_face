@@ -335,3 +335,20 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
 JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iYXp4/yu/l/makehaste_jhash/ZqUQBVeAuVl.js?_nc_x=1Fw_QUkyF3r, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 1699109313376	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1699453085780	geckodriver	INFO	Listening on 127.0.0.1:51225
+1699453088855	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "51226" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofile1l0lu9"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1699453089220	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1699453089285	Marionette	INFO	Listening on port 51235
+Read port: 51235
+WebDriver BiDi listening on ws://127.0.0.1:51226
+1699453089338	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:51226/devtools/browser/7420f816-231f-4890-93c7-cce5f5d33629
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/y4/l/pt_BR/A-PnZzh3UJl.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
