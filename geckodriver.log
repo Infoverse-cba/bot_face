@@ -352,3 +352,108 @@ DevTools listening on ws://127.0.0.1:51226/devtools/browser/7420f816-231f-4890-9
 JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/y4/l/pt_BR/A-PnZzh3UJl.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+1700256787915	geckodriver	INFO	Listening on 127.0.0.1:56139
+1700256790990	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56140" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofile9LYklX"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1700256791400	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1700256791496	Marionette	INFO	Listening on port 56148
+WebDriver BiDi listening on ws://127.0.0.1:56140
+Read port: 56148
+1700256791699	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56140/devtools/browser/9be12a8c-8285-42ca-930a-79ca476042b7
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yU/l/pt_BR/ASHKdN0Mz8S.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1700256821441	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1700257011679	geckodriver	INFO	Listening on 127.0.0.1:56311
+1700257014745	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56312" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilenbS0CD"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1700257015059	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1700257015154	Marionette	INFO	Listening on port 56319
+WebDriver BiDi listening on ws://127.0.0.1:56312
+Read port: 56319
+1700257015322	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56312/devtools/browser/c4eecaea-fb0d-44bf-991c-584e29b79874
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yU/l/pt_BR/ASHKdN0Mz8S.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1700257045090	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1700257172520	geckodriver	INFO	Listening on 127.0.0.1:56494
+1700257175563	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56495" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilePwhVEh"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1700257175992	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1700257176085	Marionette	INFO	Listening on port 56521
+WebDriver BiDi listening on ws://127.0.0.1:56495
+Read port: 56521
+1700257176269	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56495/devtools/browser/bcd6a3d6-d9f5-4822-9086-468e09cffb15
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yU/l/pt_BR/ASHKdN0Mz8S.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1700257206011	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1700257340335	geckodriver	INFO	Listening on 127.0.0.1:56677
+1700257343372	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56678" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilewi7xFr"
+1700257407218	geckodriver	INFO	Listening on 127.0.0.1:56712
+1700257410252	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56713" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilepXjaDy"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1700257410594	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1700257410686	Marionette	INFO	Listening on port 56724
+WebDriver BiDi listening on ws://127.0.0.1:56713
+Read port: 56724
+1700257410862	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56713/devtools/browser/97efcd88-f1b6-425f-9dc7-66ed3b12917d
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yU/l/pt_BR/ASHKdN0Mz8S.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1700257440632	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1700257782135	geckodriver	INFO	Listening on 127.0.0.1:56997
+1700257785176	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56998" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilessq2SG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1700257785510	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1700257785604	Marionette	INFO	Listening on port 57005
+WebDriver BiDi listening on ws://127.0.0.1:56998
+Read port: 57005
+1700257785772	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56998/devtools/browser/d0cca1dc-208a-444a-9520-35c8fc3435bc
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yU/l/pt_BR/ASHKdN0Mz8S.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1700257815542	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: chrome://global/content/elements/videocontrols.js, line 3327: TypeError: can't access dead object
+JavaScript error: chrome://global/content/elements/videocontrols.js, line 3327: TypeError: can't access dead object
+1700258173338	geckodriver	INFO	Listening on 127.0.0.1:57490
+1700258176369	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "57491" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileBW00uN"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1700258176766	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1700258176825	Marionette	INFO	Listening on port 57498
+WebDriver BiDi listening on ws://127.0.0.1:57491
+Read port: 57498
+1700258176984	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:57491/devtools/browser/de9067ca-643c-4669-8daf-40f0d3bb992e
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3iPb34/yU/l/pt_BR/ASHKdN0Mz8S.js?_nc_x=Ij3Wp8lg5Kz, line 26: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.facebook.com."
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3ik5b4/y4/l/makehaste_jhash/wZhTC9h6EIm.js?_nc_x=S-Ry0ki9wRe, line 175: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1700258206786	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.

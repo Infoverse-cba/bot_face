@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver import ActionChains
 from bs4 import BeautifulSoup
 from time import sleep
+from tqdm import tqdm
 
 class bot_face():
     def __init__(self, cred_login, cred_senha):
@@ -17,6 +18,7 @@ class bot_face():
         options.add_argument("-headless")
 
         self.driver = webdriver.Firefox(options=options)
+        # self.driver = webdriver.Firefox()
         self.cred_login = cred_login
         self.cred_senha = cred_senha
         sleep(3)
@@ -114,6 +116,7 @@ class bot_face():
 
             if n_posts_browser >= n_posts:
                 n_posts_browser = n_posts
+                print(f"foram encontrados o total de {n_posts_browser} posts de {n_posts}")
                 break
 
             elif n_scroll > 50:
@@ -140,13 +143,13 @@ class bot_face():
         self.driver.execute_script("window.scrollBy(0,-"+ str(n_scroll*6150) +")")
 
 
-        for element in elements:
+        for element in tqdm(elements):
             try:
                 href = element.get_attribute('href')
                 if '#' in href:
                     element.click()
                     href = element.get_attribute('href')
-                else: continue
+                else: pass
                 
             except:
                 self.driver.execute_script("window.scrollBy(0,1150)")
@@ -172,7 +175,7 @@ class bot_face():
 
         info = list()
 
-        for i,link in enumerate(self.post_links):
+        for i,link in tqdm(enumerate(self.post_links)):
             self.driver.get(link)
             sleep(2)
             self.driver.save_screenshot('imgs/'+str(i)+'.png')
@@ -267,7 +270,7 @@ def executar_busca(id, cred_login, cred_senha, keyword):
 def inserir_db(data, id):
     print('Inserindo no banco de dados...')
 
-    for i,link in enumerate(data['link']):
+    for i,link in tqdm(enumerate(data['link'])):
         try:
     
             publication_id = link
