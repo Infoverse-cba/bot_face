@@ -175,7 +175,7 @@ class bot_face():
 
         info = list()
 
-        for i,link in tqdm(enumerate(self.post_links)):
+        for i,link in enumerate(tqdm(self.post_links)):
             self.driver.get(link)
             sleep(2)
             self.driver.save_screenshot('imgs/'+str(i)+'.png')
@@ -270,7 +270,7 @@ def executar_busca(id, cred_login, cred_senha, keyword):
 def inserir_db(data, id):
     print('Inserindo no banco de dados...')
 
-    for i,link in tqdm(enumerate(data['link'])):
+    for i,link in enumerate(tqdm(data['link'])):
         try:
     
             publication_id = link
