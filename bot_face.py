@@ -13,12 +13,13 @@ from time import sleep
 from tqdm import tqdm
 
 class bot_face():
-    def __init__(self, cred_login, cred_senha):
+    def __init__(self, cred_login, cred_senha, headless=False):
         options = webdriver.FirefoxOptions()
-        options.add_argument("-headless")
+
+        if headless: options.add_argument("-headless")
 
         self.driver = webdriver.Firefox(options=options)
-        # self.driver = webdriver.Firefox()
+
         self.cred_login = cred_login
         self.cred_senha = cred_senha
         sleep(3)
