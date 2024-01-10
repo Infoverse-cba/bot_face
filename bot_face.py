@@ -4,11 +4,7 @@ import psycopg2
 import pandas as pd
 
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait 
-from selenium.webdriver import ActionChains
-from bs4 import BeautifulSoup
+
 from time import sleep
 from tqdm import tqdm
 
@@ -22,11 +18,11 @@ class bot_face():
 
         self.cred_login = cred_login
         self.cred_senha = cred_senha
+        # print(cred_login)
+        # print(cred_senha)
         sleep(3)
 
     def time_out(void=None, time_out: int = 20, raise_exception: bool = True):
-
-
         """Executes a function with a timeout limit.
 
         :param void: (optional) Default argument, unused.
@@ -47,143 +43,161 @@ class bot_face():
             >>>slow_function()
             TimeoutException: Timeout!"""
     
-
         def wrapper(func):
             def inner_wrapper(*args, **kwargs):
-                # print("Time out value: {}".format(time_out))
                 contadortime_out = 0
                 ret = False
                 error = None
+
                 while contadortime_out < time_out:
                     try:
                         ret = func(*args, **kwargs)
                         break
+
                     except Exception as e:
                         logging.exception(e) # serve para salvar o erro no log
                         error = e
                         time.sleep(1)
+
                     contadortime_out += 1
+
                 if contadortime_out >= time_out and raise_exception:
                     raise error
+                
                 return ret
-
             return inner_wrapper
-
         return wrapper
 
     def login(self):
-        print('Fazendo login no Facebook...')
-        script_pass = f"""
-                    document.getElementById('pass').value='{self.cred_senha}'
-                    """
+        try:
+            print('Fazendo login no Facebook...')
+            script_pass = f""" document.getElementById('pass').value='{self.cred_senha}' """
+            script_username = f""" document.getElementById('email').value='{self.cred_login}' """   
+            script_login = f""" document.getElementById('loginbutton').click() """
+            
+            self.driver.get('https://www.facebook.com/login/web/')
+            self.driver.maximize_window()
+            
+            self.driver.execute_script(script_username)
+            self.driver.execute_script(script_pass)
+            self.driver.execute_script(script_login)
+            sleep(5)
 
-        script_username = f"""
-                            document.getElementById('email').value='{self.cred_login}'
-                            """   
-
-        script_login = f"""
-                            document.getElementById('loginbutton').click()
-                        """
-        
-        self.driver.get('https://www.facebook.com/login/web/')
-        self.driver.maximize_window()
-        
-        self.driver.execute_script(script_username)
-        self.driver.execute_script(script_pass)
-        self.driver.execute_script(script_login)
-
-        self.driver.implicitly_wait(10)
+        except Exception as e:
+            print('Erro no login')
+            raise(e)
 
     @time_out(time_out=10, raise_exception=True)
     def search_keyword(self, keyword):
-        print(f'Pesquisando por: {keyword}...')
-        sleep(4)
-        self.driver.get('https://www.facebook.com/search/posts?q='+keyword)
+        try:
+            url_atual = self.driver.current_url
+
+            if url_atual != 'https://www.facebook.com':
+                print('Não foi possível fazer login no Facebook.')
+                print('url atual: ', url_atual)
+
+            print(f'Pesquisando por: {keyword}...')
+            sleep(4)
+            self.driver.get('https://www.facebook.com/search/posts?q='+keyword)
+        
+        except Exception as e:
+            print('Erro na pesquisa')
+            raise(e)
 
     @time_out(time_out=10, raise_exception=False)
     def get_post_links(self, n_posts=20):
-        print('Obtendo links dos posts...')
-        self.post_links = list()
-        sleep(10)
-        n_scroll = 0
+        try:
+            print('Obtendo links dos posts...')
+            self.post_links = list()
+            sleep(10)
+            n_scroll = 0
 
-        while True:
-            script_n_posts = f""" 
-                                var n_posts = document.getElementsByClassName('x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z').length
-                                return n_posts
-                              """
+            while True:
+                script_n_posts = f""" 
+                                    var n_posts = document.getElementsByClassName('x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z').length
+                                    return n_posts
+                                """
+                
+                n_posts_browser = self.driver.execute_script(script_n_posts)
+
+                if n_posts_browser >= n_posts:
+                    n_posts_browser = n_posts
+                    print(f"foram encontrados o total de {n_posts_browser} posts de {n_posts}")
+                    break
+
+                elif n_scroll > 50:
+                    print(f"foram encontrados o total de {n_posts_browser} posts de {n_posts}")
+                    
+                    break
+
+                else:
+                    n_scroll += 1
+                    self.driver.execute_script("window.scrollBy(0,6150)")
+                    sleep(1)
+
+
+            # self.driver.execute_script("window.scrollBy(0,6150)")
+
+            script = f""" 
+                        var results = document.getElementsByClassName('x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv xo1l8bm')
+                        return results
+                    """
             
-            n_posts_browser = self.driver.execute_script(script_n_posts)
-
-            if n_posts_browser >= n_posts:
-                n_posts_browser = n_posts
-                print(f"foram encontrados o total de {n_posts_browser} posts de {n_posts}")
-                break
-
-            elif n_scroll > 50:
-                print(f"foram encontrados o total de {n_posts_browser} posts de {n_posts}")
-                
-                break
-
-            else:
-                n_scroll += 1
-                self.driver.execute_script("window.scrollBy(0,6150)")
-                sleep(1)
+            elements = self.driver.execute_script(script)
+            elements = elements[:n_posts_browser]
+            
+            self.driver.execute_script("window.scrollBy(0,-"+ str(n_scroll*6150) +")")
 
 
-        # self.driver.execute_script("window.scrollBy(0,6150)")
-
-        script = f""" 
-                    var results = document.getElementsByClassName('x1i10hfl xjbqb8w x6umtig x1b1mbwd xaqea5y xav7gou x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1heor9g xt0b8zv xo1l8bm')
-                    return results
-                  """
-        
-        elements = self.driver.execute_script(script)
-        elements = elements[:n_posts_browser]
-        
-        self.driver.execute_script("window.scrollBy(0,-"+ str(n_scroll*6150) +")")
-
-
-        for element in tqdm(elements):
-            try:
-                href = element.get_attribute('href')
-                if '#' in href:
-                    element.click()
+            for element in tqdm(elements):
+                try:
                     href = element.get_attribute('href')
-                else: pass
-                
-            except:
-                self.driver.execute_script("window.scrollBy(0,1150)")
-                sleep(1)
-                element.click()
-                sleep(1)
-                href = element.get_attribute('href')
+                    if '#' in href:
+                        element.click()
+                        href = element.get_attribute('href')
+                    else: pass
+                    
+                except:
+                    self.driver.execute_script("window.scrollBy(0,1150)")
+                    sleep(1)
+                    element.click()
+                    sleep(1)
+                    href = element.get_attribute('href')
 
-            if href not in self.post_links:
-                self.post_links.append(href)
+                if href not in self.post_links:
+                    self.post_links.append(href)
 
-            if len(self.post_links) == n_posts:
-                break
+                if len(self.post_links) == n_posts:
+                    break
 
-        print('numero de post_links: ', len(self.post_links))
+            print('numero de post_links: ', len(self.post_links))
+
+        except Exception as e:
+            print('Erro ao obter links dos posts')
+            raise(e)
         
     def get_data(self):
         return self.data
 
-    @time_out(time_out=10, raise_exception=False)
+    @time_out(time_out=40, raise_exception=True)
     def get_information(self):
-        print('Tirando screenshots...')
+        try:
+            print('Tirando screenshots...')
 
-        info = list()
+            info = list()
 
-        for i,link in enumerate(tqdm(self.post_links)):
-            self.driver.get(link)
-            sleep(2)
-            self.driver.save_screenshot('imgs/'+str(i)+'.png')
+            for i,link in enumerate(tqdm(self.post_links)):
+                self.driver.get(link)
+                sleep(2)
+                self.driver.save_screenshot('imgs/'+str(i)+'.png')
 
-            info.append([link, link])
+                info.append([link, link])
 
-        self.data = pd.DataFrame(info, columns=['link', 'publication_id'])
+            self.data = pd.DataFrame(info, columns=['link', 'publication_id'])
+        
+        except Exception as e:
+            print('Erro ao tirar screenshots')
+            raise(e)
 
 def execute_sql(sql, data = None, fetch=False):
     try:
@@ -257,7 +271,7 @@ def verificando_busca_avulsa():
 
 def executar_busca(id, cred_login, cred_senha, keyword):
     print('executando busca...')
-    bot = bot_face(cred_login, cred_senha)
+    bot = bot_face(cred_login, cred_senha, headless=True)
     bot.login()
 
     sleep(5)
