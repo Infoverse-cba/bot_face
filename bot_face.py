@@ -92,7 +92,7 @@ class bot_face():
         try:
             url_atual = self.driver.current_url
 
-            if url_atual != 'https://www.facebook.com':
+            if url_atual != 'https://www.facebook.com/?sk=welcome':
                 print('Não foi possível fazer login no Facebook.')
                 print('url atual: ', url_atual)
 
