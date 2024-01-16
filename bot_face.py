@@ -4,6 +4,7 @@ import psycopg2
 import pandas as pd
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 from time import sleep
 from tqdm import tqdm
@@ -22,50 +23,18 @@ class bot_face():
         # print(cred_senha)
         sleep(3)
 
-    def time_out(void=None, time_out: int = 20, raise_exception: bool = True):
-        """Executes a function with a timeout limit.
-
-        :param void: (optional) Default argument, unused.
-        :type void: any
-        :param time_out: The timeout limit in seconds.
-        :type time_out: int
-        :param raise_exception: (optional) If True, a TimeoutException will be raised when the timeout is reached.
-        :type raise_exception: bool
-        :return: Returns the result of the executed function.
-        :rtype: any
-
-        Example:
-            This decorator can be used to set a timeout limit for a function that takes too long to execute.
-            >>>@time_out(time_out=30, raise_exception=True)
-            >>>def slow_function():
-            >>>    time.sleep(35)
-            >>>
-            >>>slow_function()
-            TimeoutException: Timeout!"""
-    
-        def wrapper(func):
-            def inner_wrapper(*args, **kwargs):
-                contadortime_out = 0
-                ret = False
-                error = None
-
-                while contadortime_out < time_out:
-                    try:
-                        ret = func(*args, **kwargs)
-                        break
-
-                    except Exception as e:
-                        logging.exception(e) # serve para salvar o erro no log
-                        error = e
-                        time.sleep(1)
-
-                    contadortime_out += 1
-
-                if contadortime_out >= time_out and raise_exception:
-                    raise error
-                
-                return ret
-            return inner_wrapper
+    def print_status(self, func):
+        def wrapper(*args, **kwargs):
+            print(f'Executando {func.__name__}...')
+            try:
+                ret = func(*args, **kwargs)
+                print(f'{func.__name__} executado com sucesso!')
+            
+            except Exception as e:
+                print(f'Erro ao executar {func.__name__}')
+                raise(e)
+            
+            return ret
         return wrapper
 
     def login(self):
@@ -83,28 +52,31 @@ class bot_face():
             self.driver.execute_script(script_login)
             sleep(5)
 
+            return 'Login feito com sucesso'
+
         except Exception as e:
             print('Erro no login')
-            raise(e)
+            return 'Erro no login'
 
-    @time_out(time_out=10, raise_exception=True)
     def search_keyword(self, keyword):
         try:
-            url_atual = self.driver.current_url
-
-            if url_atual != 'https://www.facebook.com/?sk=welcome':
-                print('Não foi possível fazer login no Facebook.')
-                print('url atual: ', url_atual)
+            if not (self.check_page('https://www.facebook.com/?sk=welcome') or self.check_page('https://www.facebook.com/')):
+                raise Exception('Não foi possível fazer login no Facebook.')
 
             print(f'Pesquisando por: {keyword}...')
             sleep(4)
             self.driver.get('https://www.facebook.com/search/posts?q='+keyword)
-        
+
+            self.check_criminal_question()
+
+
+            if not self.check_page('https://www.facebook.com/search/posts?q='+keyword):
+                raise Exception('Não foi possível fazer a pesquisa no Facebook.')
+            
         except Exception as e:
             print('Erro na pesquisa')
             raise(e)
 
-    @time_out(time_out=10, raise_exception=False)
     def get_post_links(self, n_posts=20):
         try:
             print('Obtendo links dos posts...')
@@ -135,6 +107,9 @@ class bot_face():
                     self.driver.execute_script("window.scrollBy(0,6150)")
                     sleep(1)
 
+            if n_posts_browser == 0:
+                print('Nenhum post encontrado')
+                raise Exception('Nenhum post encontrado')
 
             # self.driver.execute_script("window.scrollBy(0,6150)")
 
@@ -178,8 +153,7 @@ class bot_face():
         
     def get_data(self):
         return self.data
-
-    @time_out(time_out=40, raise_exception=True)
+    
     def get_information(self):
         try:
             print('Tirando screenshots...')
@@ -198,6 +172,48 @@ class bot_face():
         except Exception as e:
             print('Erro ao tirar screenshots')
             raise(e)
+
+    def check_page(self, page: str):
+        url_atual = self.driver.current_url
+        page = page.replace(' ', '%20')
+
+        if url_atual == page:
+            return True
+        
+        else:
+            print(f'url atual: {url_atual}, url esperada: {page}')
+            self.driver.save_screenshot('imgs/error_screenshot.png')
+
+            return False
+
+    def check_criminal_question(self):
+        try:
+            xpath_question = '/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div/div/div/div/div/div/div[3]/a/div'
+            xpath_question_continue = '/html/body/div[1]/div/div[1]/div/div[4]/div/div/div[1]/div/div[2]/div/div/div/div[3]/div[1]/a/span'
+
+            try:
+                element = self.driver.find_element(by=By.XPATH, value=xpath_question)
+                question = True
+
+            except:
+                question = False
+
+            print('Verificando se há pergunta criminal...')
+
+            if question:
+                print('Pergunta encontrada!')
+                element.click()
+                sleep(2)
+                self.driver.find_element(by=By.XPATH, value=xpath_question_continue).click()
+                sleep(2)
+                
+        except Exception as e:
+            print(f'Erro ao verificar se há pergunta criminal: {e}')
+            raise(e)
+
+    def result_is_empty(self):
+        pass
+
 
 def execute_sql(sql, data = None, fetch=False):
     try:
@@ -266,21 +282,26 @@ def verificando_busca_avulsa():
         row2 = retorna_credencial(id_credencial)
         _, _, cred_usuario, cred_senha = row2[0]
 
-        executar_busca(id, cred_usuario, cred_senha, keyword)
+        status = executar_busca(id, cred_usuario, cred_senha, keyword)
+        # print('status: ', status)
         set_status_pesquisa_avulsa(id)
 
 def executar_busca(id, cred_login, cred_senha, keyword):
     print('executando busca...')
-    bot = bot_face(cred_login, cred_senha, headless=True)
-    bot.login()
+    try:
+        bot = bot_face(cred_login, cred_senha, headless=True)
+        bot.login()
 
-    sleep(5)
+        sleep(5)
 
-    bot.search_keyword(keyword)
-    bot.get_post_links()
-    bot.get_information()
+        bot.search_keyword(keyword)
+        bot.get_post_links()
+        bot.get_information()
 
-    inserir_db(bot.get_data(), id)
+        inserir_db(bot.get_data(), id)
+
+    except Exception as e:
+        pass
        
 def inserir_db(data, id):
     print('Inserindo no banco de dados...')
