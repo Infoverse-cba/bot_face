@@ -278,6 +278,7 @@ def verificando_busca_avulsa():
 
     for row in rows:
         id, id_usuario, id_credencial, date_search, rede_social, status, keyword, filtro, filtro_avancado, ano_referencia, publicacoes_de, localizacao_marcada = row
+        keyword = retira_acento(keyword)
 
         row2 = retorna_credencial(id_credencial)
         _, _, cred_usuario, cred_senha = row2[0]
@@ -308,24 +309,8 @@ def inserir_db(data, id):
 
     for i,link in enumerate(tqdm(data['link'])):
         try:
-    
             publication_id = link
-            publication_id = remover_letra(publication_id, '/')
-            publication_id = remover_letra(publication_id, ':')
-            publication_id = remover_letra(publication_id, '?')
-            publication_id = remover_letra(publication_id, ',')
-            publication_id = remover_letra(publication_id, '.')
-            publication_id = remover_letra(publication_id, '=')
-            publication_id = remover_letra(publication_id, '[')
-            publication_id = remover_letra(publication_id, ']')
-            publication_id = remover_letra(publication_id, '_')
-            publication_id = remover_letra(publication_id, '-')
-            publication_id = remover_letra(publication_id, '%')
-            publication_id = remover_letra(publication_id, '#')
-            publication_id = remover_letra(publication_id, '&')
-            publication_id = remover_letra(publication_id, '!')
-            publication_id = remover_letra(publication_id, '(')
-            publication_id = remover_letra(publication_id, ')')
+            publication_id = remove_especial_char(publication_id)
 
             sql = """
             INSERT into contigencia (link_publication, publication_id, id_pesquisa_avulsa) 
@@ -358,12 +343,55 @@ def inserir_db(data, id):
 
     print('Inserido com sucesso!')
 
-def remover_letra(string, letra_retirar):
-    nova_string = ""
-    for letra in string:
-        if letra != letra_retirar:
-            nova_string += letra
-    return nova_string
+def remove_especial_char(string):
+    string = string.replace('(', '')
+    string = string.replace(')', '')
+    string = string.replace('/', '')
+    string = string.replace('.', '')
+    string = string.replace('-', '')
+    string = string.replace(',', '')
+    string = string.replace(':', '')
+    string = string.replace('!', '')
+    string = string.replace('?', '')
+    string = string.replace('#', '')
+    string = string.replace('%', '')
+    string = string.replace('&', '')
+    string = string.replace('=', '')
+    string = string.replace('[', '')
+    string = string.replace(']', '')
+    
+    return string
+
+def retira_acento(string):
+    string = string.replace('á', 'a')
+    string = string.replace('à', 'a')
+    string = string.replace('ã', 'a')
+    string = string.replace('â', 'a')
+    string = string.replace('é', 'e')
+    string = string.replace('ê', 'e')
+    string = string.replace('í', 'i')
+    string = string.replace('ó', 'o')
+    string = string.replace('ô', 'o')
+    string = string.replace('õ', 'o')
+    string = string.replace('ú', 'u')
+    string = string.replace('ü', 'u')
+    string = string.replace('ç', 'c')
+    string = string.replace('Á', 'A')
+    string = string.replace('À', 'A')
+    string = string.replace('Ã', 'A')
+    string = string.replace('Â', 'A')
+    string = string.replace('É', 'E')
+    string = string.replace('Ê', 'E')
+    string = string.replace('Í', 'I')
+    string = string.replace('Ó', 'O')
+    string = string.replace('Ô', 'O')
+    string = string.replace('Õ', 'O')
+    string = string.replace('Ú', 'U')
+    string = string.replace('Ü', 'U')
+    string = string.replace('Ç', 'C')
+
+    return string
+
 
 if __name__ == '__main__':
     global precessando 
