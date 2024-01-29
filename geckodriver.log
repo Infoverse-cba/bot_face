@@ -1436,3 +1436,18 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1706558294982	geckodriver	INFO	Listening on 127.0.0.1:61812
+1706558298051	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "61813" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilekauvER"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706558298414	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706558298489	Marionette	INFO	Listening on port 61825
+WebDriver BiDi listening on ws://127.0.0.1:61813
+Read port: 61825
+1706558298656	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+DevTools listening on ws://127.0.0.1:61813/devtools/browser/e65efff5-d5b2-42f8-bfd7-5be60fed84d6
+Exiting due to channel error.

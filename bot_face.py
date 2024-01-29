@@ -290,7 +290,7 @@ def verificando_busca_avulsa():
 def executar_busca(id, cred_login, cred_senha, keyword):
     print('executando busca...')
     try:
-        bot = bot_face(cred_login, cred_senha, headless=False)
+        bot = bot_face(cred_login, cred_senha, headless=True)
         bot.login()
 
         sleep(5)
