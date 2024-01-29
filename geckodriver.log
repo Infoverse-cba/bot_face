@@ -1225,3 +1225,171 @@ enqueueSetState@https://abs.twimg.com/responsive-web/client-web/vendor.1b81224a.
 904152/c/<@https://abs.twimg.com/responsive-web/client-web/vendor.1b81224a.js:74:177790
 
 Dynamically enable window occlusion 1
+1706107661423	geckodriver	INFO	Listening on 127.0.0.1:51735
+1706107664497	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51736" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileME4xR1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706107664855	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706107664942	Marionette	INFO	Listening on port 51743
+WebDriver BiDi listening on ws://127.0.0.1:51736
+Read port: 51743
+1706107665099	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51736/devtools/browser/cbaab2fc-838a-441b-9db5-56e74f31df0f
+1706107694886	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.log: "RemoteSettingsWorker error: DataError: IndexedDB: records, timestamps execute() Data provided to an operation does not meet requirements."
+console.error: (new RemoteSettingsWorkerError("DataError: IndexedDB: records, timestamps execute() Data provided to an operation does not meet requirements.", "resource://services-settings/RemoteSettingsWorker.sys.mjs", 34))
+1706107846396	Marionette	INFO	Stopped listening on port 51743
+Dynamically enable window occlusion 1
+1706107854863	geckodriver	INFO	Listening on 127.0.0.1:51878
+1706107857935	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51879" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileVSgyom"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706107858275	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706107858388	Marionette	INFO	Listening on port 51888
+WebDriver BiDi listening on ws://127.0.0.1:51879
+Read port: 51888
+1706107858562	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:51879/devtools/browser/b295d842-55bf-4d61-b5d2-f52ffeaa2c56
+1706107888302	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.log: "RemoteSettingsWorker error: DataError: IndexedDB: records, timestamps execute() Data provided to an operation does not meet requirements."
+console.error: (new RemoteSettingsWorkerError("DataError: IndexedDB: records, timestamps execute() Data provided to an operation does not meet requirements.", "resource://services-settings/RemoteSettingsWorker.sys.mjs", 34))
+JavaScript warning: https://abs.twimg.com/responsive-web/client-web/main.7602833a.js, line 1: Script terminated by timeout at:
+845907/c/this._updateSessionStorage@https://abs.twimg.com/responsive-web/client-web/main.7602833a.js:1:2462141
+
+1706107894920	Marionette	INFO	Stopped listening on port 51888
+Dynamically enable window occlusion 1
+1706108182672	geckodriver	INFO	Listening on 127.0.0.1:52190
+1706108185741	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52191" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofiletYdk9a"
+1706108212696	geckodriver	INFO	Listening on 127.0.0.1:52241
+1706108215771	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52242" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileZK0T8y"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706108216141	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706108216232	Marionette	INFO	Listening on port 52252
+WebDriver BiDi listening on ws://127.0.0.1:52242
+Read port: 52252
+1706108216398	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52242/devtools/browser/0b9a71fa-8901-4c57-8e5b-f62e961012a4
+1706108246162	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1706108483336	Marionette	INFO	Stopped listening on port 52252
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52340" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilejw3vth"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706108283420	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706108283527	Marionette	INFO	Listening on port 52359
+WebDriver BiDi listening on ws://127.0.0.1:52340
+Read port: 52359
+1706108283712	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52340/devtools/browser/4c7afb33-3aba-4cc4-9ca4-85342631c900
+1706108313453	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1706108482761	Marionette	INFO	Stopped listening on port 52359
+Dynamically enable window occlusion 1
+ng command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52494" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofile0zCTah"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706108395461	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706108395566	Marionette	INFO	Listening on port 52501
+WebDriver BiDi listening on ws://127.0.0.1:52494
+Read port: 52501
+1706108395745	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52494/devtools/browser/549c2d7d-ec1f-491f-8745-9af98150bfe3
+1706108425476	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1706108482970	Marionette	INFO	Stopped listening on port 52501
+Dynamically enable window occlusion 1
+1706108520690	geckodriver	INFO	Listening on 127.0.0.1:52606
+1706108523774	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52607" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileCrXBmV"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706108524102	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706108524189	Marionette	INFO	Listening on port 52614
+WebDriver BiDi listening on ws://127.0.0.1:52607
+Read port: 52614
+1706108524350	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52607/devtools/browser/4b7c002b-13f8-4160-a357-496a8160856a
+1706108554117	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://abs.twimg.com/responsive-web/client-web/main.7602833a.js, line 1: Script terminated by timeout at:
+845907/c/this._updateSessionStorage@https://abs.twimg.com/responsive-web/client-web/main.7602833a.js:1:2462141
+
+1706108733305	Marionette	INFO	Stopped listening on port 52614
+Dynamically enable window occlusion 1
+1706108743435	geckodriver	INFO	Listening on 127.0.0.1:52734
+1706108746496	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52735" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilep30TF7"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706108746814	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706108746924	Marionette	INFO	Listening on port 52742
+WebDriver BiDi listening on ws://127.0.0.1:52735
+Read port: 52742
+1706108747098	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52735/devtools/browser/e3107e48-c509-4fe1-a95c-43655245f4b8
+1706108776836	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://abs.twimg.com/responsive-web/client-web/main.7602833a.js, line 1: Script terminated by timeout at:
+845907/c/this._updateSessionStorage@https://abs.twimg.com/responsive-web/client-web/main.7602833a.js:1:2462141
+
+1706108814570	Marionette	INFO	Stopped listening on port 52742
+Dynamically enable window occlusion 1
+1706109234653	geckodriver	INFO	Listening on 127.0.0.1:53340
+1706109237735	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53341" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofileYNEGRQ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706109238090	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706109238191	Marionette	INFO	Listening on port 53348
+WebDriver BiDi listening on ws://127.0.0.1:53341
+Read port: 53348
+1706109238363	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53341/devtools/browser/7fd8ed1f-e358-4c97-b651-94ffe2bc4642
+1706109268117	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://help.twitter.com/etc/designs/help2-twitter/public/js/project.js.twhash.a.f.dd22492f53d171ef4f1c33d94d6fbd77.js, line 2: Error: Error response: 
+JavaScript warning: https://help.twitter.com/etc/designs/help2-twitter/public/js/project.js.twhash.a.f.dd22492f53d171ef4f1c33d94d6fbd77.js, line 2: Script terminated by timeout at:
+Gi@https://help.twitter.com/etc/designs/help2-twitter/public/js/project.js.twhash.a.f.dd22492f53d171ef4f1c33d94d6fbd77.js:2:849579
+
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://twitter.com."
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+[Child 22576, MediaDecoderStateMachine #1] WARNING: 1e46107ebc0 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:324
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://client-api.arkoselabs.com."
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://abs.twimg.com/responsive-web/client-web/main.7602833a.js, line 1: Script terminated by timeout at:
+845907/c/this._updateSessionStorage@https://abs.twimg.com/responsive-web/client-web/main.7602833a.js:1:2462253
+
+1706113525012	Marionette	INFO	Stopped listening on port 53348
+Dynamically enable window occlusion 1
+1706114122532	geckodriver	INFO	Listening on 127.0.0.1:54459
+1706114125626	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54460" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\vitor\\AppData\\Local\\Temp\\rust_mozprofilez9fuZt"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1706114125975	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1706114126070	Marionette	INFO	Listening on port 54469
+WebDriver BiDi listening on ws://127.0.0.1:54460
+Read port: 54469
+1706114126240	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54460/devtools/browser/a08322d6-992d-4f92-8ca8-bee55cb39733
+1706114156011	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://client-api.arkoselabs.com/v2/2.3.4/enforcement.c70df15cb97792b18c2f4978b68954a0.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://abs.twimg.com/responsive-web/client-web/main.7602833a.js, line 1: Script terminated by timeout at:
+845907/c/this._updateSessionStorage@https://abs.twimg.com/responsive-web/client-web/main.7602833a.js:1:2462141
+
+1706114166840	Marionette	INFO	Stopped listening on port 54469
+Dynamically enable window occlusion 1
