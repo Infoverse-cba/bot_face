@@ -168,6 +168,7 @@ class bot_face():
                 info.append([link, link])
 
             self.data = pd.DataFrame(info, columns=['link', 'publication_id'])
+            self.driver.quit()
         
         except Exception as e:
             print('Erro ao tirar screenshots')
@@ -290,7 +291,7 @@ def verificando_busca_avulsa():
 def executar_busca(id, cred_login, cred_senha, keyword):
     print('executando busca...')
     try:
-        bot = bot_face(cred_login, cred_senha, headless=True)
+        bot = bot_face(cred_login, cred_senha, headless=False)
         bot.login()
 
         sleep(5)
