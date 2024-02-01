@@ -73,6 +73,8 @@ class bot_face():
             if not self.check_page('https://www.facebook.com/search/posts?q='+keyword):
                 raise Exception('Não foi possível fazer a pesquisa no Facebook.')
             
+            return True
+            
         except Exception as e:
             print('Erro na pesquisa')
             raise(e)
@@ -91,6 +93,7 @@ class bot_face():
                                 """
                 
                 n_posts_browser = self.driver.execute_script(script_n_posts)
+                print(n_posts_browser)
 
                 if n_posts_browser >= n_posts:
                     n_posts_browser = n_posts
@@ -109,7 +112,8 @@ class bot_face():
 
             if n_posts_browser == 0:
                 print('Nenhum post encontrado')
-                raise Exception('Nenhum post encontrado')
+                self.data = pd.DataFrame([["",""]], columns=['link', 'publication_id'])
+                return False
 
             # self.driver.execute_script("window.scrollBy(0,6150)")
 
@@ -146,6 +150,7 @@ class bot_face():
                     break
 
             print('numero de post_links: ', len(self.post_links))
+            return True
 
         except Exception as e:
             print('Erro ao obter links dos posts')
@@ -163,7 +168,8 @@ class bot_face():
             for i,link in enumerate(tqdm(self.post_links)):
                 self.driver.get(link)
                 sleep(2)
-                self.driver.save_screenshot('imgs/'+str(i)+'.png')
+                # self.driver.save_screenshot('imgs/'+str(i)+'.png')
+                self.driver.save_full_page_screenshot('imgs/'+str(i)+'.png')
 
                 info.append([link, link])
 
@@ -296,16 +302,19 @@ def executar_busca(id, cred_login, cred_senha, keyword):
 
         sleep(5)
 
-        bot.search_keyword(keyword)
-        bot.get_post_links()
-        bot.get_information()
+        if bot.search_keyword(keyword):
+            bot.get_post_links()
+            bot.get_information()
+            inserir_db(bot.get_data(), id)
 
-        inserir_db(bot.get_data(), id)
+        else:
+            print('Nenhum post encontrado')
+            set_status_pesquisa_avulsa(id)
 
     except Exception as e:
         pass
        
-def inserir_db(data, id):
+def inserir_db(data, id, empty = False):
     print('Inserindo no banco de dados...')
 
     for i,link in enumerate(tqdm(data['link'])):
@@ -322,6 +331,9 @@ def inserir_db(data, id):
             
             # Conte o número de linhas retornadas
             numero_de_linhas = len(linhas)
+
+            if empty:
+                pass
 
             if numero_de_linhas == 0:
                 execute_sql(sql)
