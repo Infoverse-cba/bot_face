@@ -1,26 +1,37 @@
-import logging
 import time
+import random
+import logging
 import psycopg2
+import argparse
+import numpy as np
 import pandas as pd
 
+from tqdm import tqdm
+from time import sleep
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
-from time import sleep
-from tqdm import tqdm
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait 
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 class bot_face():
     def __init__(self, cred_login, cred_senha, headless=False):
-        options = webdriver.FirefoxOptions()
+        options = webdriver.ChromeOptions()
 
         if headless: options.add_argument("-headless")
 
-        self.driver = webdriver.Firefox(options=options)
+        options.add_argument("--disable-blink-features=AutomationControlled") 
+        options.add_argument('--icognito')
+
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
         self.cred_login = cred_login
         self.cred_senha = cred_senha
-        # print(cred_login)
-        # print(cred_senha)
+
         sleep(3)
 
     def print_status(self, func):
